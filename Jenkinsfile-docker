@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build') {
        steps {
-          sh 'docker build -t ilgar:latest .'
+          sh 'docker build -t igush:latest .'
           }
           }
      stage ('Login') {
@@ -22,7 +22,7 @@ pipeline {
            }
       stage ('ImageTag') {
           steps {
-              sh 'docker tag ilgar236:latest ilgar236/docker:version2'
+              sh 'docker tag igush:latest ilgar236/docker:version2'
          }
        }
        
