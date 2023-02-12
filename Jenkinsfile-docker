@@ -1,6 +1,6 @@
 pipeline {
   agent { label 'master' }
-  enviroment {
+ environment {
       DOCKERHUB_CREDENTIALS=credentials('dockerhub-ilgar')
 }
   stages {
