@@ -1,0 +1,43 @@
+pipeline {
+  agent { label 'master' }
+  enviroment {
+      DOCKERHUBCREDENTIALS=credentials('dockerhub-
+ilgar')
+}
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/ilgar1989/jenkins-dockerhub.git'
+      }
+    }
+
+    stage('Build')
+       steps {
+          sh 'docker build -t ilgar:latest .'
+          }
+          }
+     stage ('Login') {
+     steps {
+         sh 'echo $DOCKERHUBCREDENTIALS_PSW | docker login -u $DOCKERHUBCREDENTIALS_USR --password-stdin'
+            }
+           }
+      stage ('ImageTag') {
+          steps {
+              sh 'docker tag ilgar:latest ilgar236/docker:version2'
+         }
+       }
+       
+       stage('Push')  {
+          steps {
+             sh 'docker push docker push ilgar236/docker:version2'
+             }
+          }
+       }
+       
+        post {
+          always {
+            sh 'docker logout'
+          }
+        }
+     }
+          
