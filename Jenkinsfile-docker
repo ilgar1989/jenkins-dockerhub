@@ -1,7 +1,7 @@
 pipeline {
   agent any
  environment {
-      DOCKERHUB_CREDENTIALS=credentials('dockerhub-ilgar236')
+    sudo  DOCKERHUB_CREDENTIALS=credentials('dockerhub-ilgar236')
 }
   stages {
     stage('Checkout') {
