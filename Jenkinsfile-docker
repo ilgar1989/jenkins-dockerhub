@@ -28,7 +28,7 @@ pipeline {
        
        stage('Push')  {
           steps {
-             sh 'docker push docker push ilgar236/docker:version2'
+             sh 'docker push  ilgar236/docker:version2'
              }
           }
        }
