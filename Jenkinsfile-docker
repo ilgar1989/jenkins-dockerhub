@@ -1,5 +1,5 @@
 pipeline {
-  agent 
+  agent ( label 'master' )
  environment {
       DOCKERHUB_CREDENTIALS=credentials('dockerhub-ilgar236')
 }
@@ -22,7 +22,7 @@ pipeline {
            }
       stage ('ImageTag') {
           steps {
-              sh 'docker tag ilgar:latest ilgar236/docker:version2'
+              sh 'docker tag ilgar236:latest ilgar236/docker:version2'
          }
        }
        
