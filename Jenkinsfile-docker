@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'master' }
   enviroment {
-      DOCKERHUBCREDENTIALS=credentials('dockerhub-
+      DOCKERHUB_CREDENTIALS=credentials('dockerhub-
 ilgar')
 }
   stages {
@@ -32,7 +32,7 @@ ilgar')
              sh 'docker push docker push ilgar236/docker:version2'
              }
           }
-       }
+       
        
         post {
           always {
